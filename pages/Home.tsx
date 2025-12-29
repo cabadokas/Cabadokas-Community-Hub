@@ -1,6 +1,5 @@
-
 import React, { useState } from 'react';
-import { BLOG_POSTS, FEATURED_PRODUCT, USER_LINK_POSTS, EMAILS, AFFILIATE_PROGRAMS } from '../constants';
+import { BLOG_POSTS, FEATURED_PRODUCT, EMAILS, AFFILIATE_PROGRAMS } from '../constants';
 import { 
   MusicPlayer, 
   LiveTraffic, 
@@ -13,7 +12,7 @@ import {
   KeywordSearchTool,
   AffiliateLinkPreview
 } from '../components/Widgets';
-import { ShoppingBag, ArrowRight, Zap, Target } from 'lucide-react';
+import { Sparkles, ArrowDown, Zap, ShieldCheck } from 'lucide-react';
 
 const Home: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -22,7 +21,7 @@ const Home: React.FC = () => {
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
     if (emailInput) {
-      window.location.href = `mailto:${EMAILS.subscription}?subject=New Subscription Request&body=Visitor Email: ${emailInput}`;
+      window.location.href = `mailto:${EMAILS.subscription}?subject=Global Subscription Request&body=Email: ${emailInput}`;
       setEmailInput('');
     }
   };
@@ -32,40 +31,55 @@ const Home: React.FC = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 py-12">
+    <div className="container mx-auto px-4 py-8 md:py-16">
       {selectedImage && (
         <ImageModal src={selectedImage} onClose={() => setSelectedImage(null)} />
       )}
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-        <div className="lg:col-span-8 space-y-16">
-          <section className="bg-white dark:bg-gray-800 rounded-[3rem] p-12 lg:p-20 relative overflow-hidden shadow-sm border border-gray-50 dark:border-gray-700">
-            <div className="relative z-10 max-w-2xl">
-              <div className="inline-flex items-center gap-2 bg-brand-50 dark:bg-brand-900/30 px-5 py-2 rounded-full mb-8">
-                <div className="w-2 h-2 bg-brand-600 rounded-full animate-pulse"></div>
-                <span className="text-[10px] font-black uppercase tracking-[0.3em] text-brand-600 dark:text-brand-400">Official Portal Active</span>
-              </div>
-              <h1 className="text-5xl lg:text-7xl font-black text-gray-900 dark:text-white mb-8 tracking-tighter leading-[0.9]">
-                Magnetic <span className="text-brand-600">Beauty</span> & Financial <span className="text-brand-600">Freedom</span>.
-              </h1>
-              <p className="text-2xl text-gray-400 font-medium mb-12">The global ecosystem for modern wellness and independence.</p>
-              <div className="flex flex-wrap gap-4">
-                 <button onClick={() => scrollToSection('affiliates')} className="bg-black text-white px-10 py-5 rounded-3xl font-black text-lg shadow-2xl hover:scale-105 transition-transform uppercase">Partner grid</button>
-                 <button onClick={() => scrollToSection('featured')} className="bg-slate-100 dark:bg-gray-700 text-gray-900 dark:text-white px-10 py-5 rounded-3xl font-black text-lg hover:bg-slate-200 transition-colors uppercase">Top deals</button>
-              </div>
+      {/* Hero Section - Redesigned for Uniqueness */}
+      <div className="relative mb-32 group">
+        <div className="absolute -top-20 -left-20 w-96 h-96 bg-brand-200/40 rounded-full blur-[100px] animate-pulse"></div>
+        <div className="absolute top-40 -right-20 w-80 h-80 bg-rose-200/30 rounded-full blur-[80px]"></div>
+        
+        <div className="grid lg:grid-cols-2 gap-16 items-center relative z-10">
+          <div className="order-2 lg:order-1">
+            <div className="inline-flex items-center gap-2 bg-white/50 dark:bg-white/5 backdrop-blur-md px-4 py-2 rounded-full border border-brand-100 dark:border-white/10 mb-8 shadow-sm">
+              <Sparkles size={14} className="text-brand-500 animate-spin-slow" />
+              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-brand-700 dark:text-brand-300">A World of Beauty & Wealth</span>
             </div>
-          </section>
+            <h1 className="text-6xl md:text-8xl font-black text-slate-900 dark:text-white mb-8 tracking-tighter leading-[0.85] italic">
+              Empower <br />
+              <span className="text-brand-600 not-italic">Your Brand.</span>
+            </h1>
+            <p className="text-xl md:text-2xl text-slate-500 dark:text-slate-400 font-medium mb-12 max-w-lg leading-tight">
+              Merging high-performance beauty with automated financial systems for the modern independent woman.
+            </p>
+            <div className="flex flex-wrap gap-6">
+               <button onClick={() => scrollToSection('affiliates')} className="bg-brand-600 text-white px-12 py-5 rounded-2xl font-black text-lg shadow-[0_20px_40px_rgba(225,29,72,0.3)] hover:translate-y-[-4px] transition-all uppercase tracking-tighter">Enter The Grid</button>
+               <button onClick={() => scrollToSection('featured')} className="bg-white dark:bg-slate-900 text-slate-900 dark:text-white border-2 border-slate-100 dark:border-slate-800 px-12 py-5 rounded-2xl font-black text-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-all uppercase tracking-tighter flex items-center gap-2">Featured <ArrowDown size={20} /></button>
+            </div>
+          </div>
+          <div className="order-1 lg:order-2 relative h-[500px] md:h-[600px] rounded-[4rem] overflow-hidden shadow-2xl border-8 border-white dark:border-slate-900 transform lg:rotate-2 hover:rotate-0 transition-transform duration-700">
+            <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=1000&auto=format&fit=crop" alt="Hero" className="w-full h-full object-cover scale-110 group-hover:scale-100 transition-transform duration-1000" />
+            <div className="absolute inset-0 bg-gradient-to-t from-brand-900/40 to-transparent"></div>
+          </div>
+        </div>
+      </div>
 
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <div className="lg:col-span-8 space-y-24">
+          
           <div id="affiliates" className="scroll-mt-32">
              <GlobalPartnersGrid />
           </div>
 
-          <div className="space-y-10">
-             <div className="flex items-center gap-4 px-4">
-                <Target className="text-brand-500" />
-                <h3 className="text-xl font-black uppercase tracking-tighter text-gray-900 dark:text-white">Auto-Image Affiliate Feed</h3>
+          <div className="space-y-12">
+             <div className="flex items-center gap-4">
+                <div className="h-px flex-1 bg-slate-200 dark:bg-slate-800"></div>
+                <h3 className="text-sm font-black uppercase tracking-[0.4em] text-slate-400">Live Global Feed</h3>
+                <div className="h-px flex-1 bg-slate-200 dark:bg-slate-800"></div>
              </div>
-             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {AFFILIATE_PROGRAMS.slice(0, 4).map((prog, i) => (
                    <AffiliateLinkPreview key={i} url={prog.url} title={prog.name} />
                 ))}
@@ -76,15 +90,20 @@ const Home: React.FC = () => {
              <AffiliateProductSpotlight product={FEATURED_PRODUCT} onImageClick={setSelectedImage} />
           </div>
 
-          <div className="space-y-20">
+          <div className="space-y-32 pb-20">
             {BLOG_POSTS.map((post) => (
-              <article key={post.id} className="group">
-                <div className="relative h-[30rem] lg:h-[40rem] rounded-[3rem] overflow-hidden mb-10 cursor-zoom-in shadow-2xl" onClick={() => setSelectedImage(post.image)}>
-                  <img src={post.image} alt={post.title} className="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-                  <div className="absolute bottom-12 left-12 right-12 text-white">
-                    <span className="bg-brand-600 px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest mb-6 inline-block">{post.category}</span>
-                    <h3 className="text-4xl font-black leading-tight tracking-tighter mb-4">{post.title}</h3>
+              <article key={post.id} className="group relative">
+                <div className="flex flex-col md:flex-row gap-12 items-center">
+                  <div className="w-full md:w-1/2 aspect-[4/5] rounded-[3rem] overflow-hidden cursor-zoom-in shadow-xl bg-slate-100" onClick={() => setSelectedImage(post.image)}>
+                    <img src={post.image} alt={post.title} className="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-110" />
+                  </div>
+                  <div className="w-full md:w-1/2">
+                    <span className="text-brand-600 font-black uppercase tracking-widest text-xs mb-6 block">{post.category}</span>
+                    <h3 className="text-5xl font-black leading-[0.9] tracking-tighter mb-8 group-hover:text-brand-600 transition-colors uppercase">{post.title}</h3>
+                    <p className="text-xl text-slate-500 font-medium mb-10 leading-relaxed">{post.excerpt}</p>
+                    <button className="flex items-center gap-2 font-black text-sm uppercase tracking-widest text-slate-900 dark:text-white group-hover:translate-x-4 transition-transform">
+                      Read Investigation <Zap size={16} className="text-brand-500" />
+                    </button>
                   </div>
                 </div>
                 <ShareWidget url={window.location.href} title={post.title} />
@@ -93,20 +112,34 @@ const Home: React.FC = () => {
           </div>
         </div>
 
+        {/* Sidebar */}
         <div className="lg:col-span-4 space-y-10">
-          <div className="sticky top-24 space-y-10">
+          <div className="sticky top-28 space-y-10">
+            <div className="p-8 bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 shadow-sm">
+               <h4 className="text-sm font-black uppercase tracking-widest mb-6">Digital Ecosystem</h4>
+               <div className="space-y-4">
+                  <LiveTraffic />
+                  <MusicPlayer />
+               </div>
+            </div>
+            
             <MagneticSearch />
             <KeywordSearchTool />
             <BulkSocialPublisher />
-            <LiveTraffic />
-            <MusicPlayer />
-            <div className="p-8 lg:p-12 bg-brand-600 rounded-[3rem] text-white text-center shadow-2xl relative overflow-hidden">
-               <h4 className="text-2xl font-black mb-8 leading-tight uppercase tracking-tighter">Cabadokas Newsletter</h4>
+
+            <div className="p-10 bg-slate-900 rounded-[3rem] text-white text-center shadow-2xl relative overflow-hidden group">
+               <div className="absolute top-0 right-0 w-32 h-32 bg-brand-600 rounded-full blur-[60px] opacity-20 group-hover:opacity-40 transition-opacity"></div>
+               <h4 className="text-2xl font-black mb-4 leading-tight uppercase tracking-tighter">Elite Registry</h4>
+               <p className="text-xs text-slate-400 font-bold mb-8 uppercase tracking-widest">Join 15,000+ modern women.</p>
                <form onSubmit={handleSubscribe} className="space-y-4">
-                 <input type="email" value={emailInput} onChange={(e) => setEmailInput(e.target.value)} required placeholder="Email Address..." className="w-full p-5 rounded-2xl bg-white/20 border border-white/30 text-white placeholder-white/60 font-bold" />
-                 <button type="submit" className="w-full bg-white text-brand-600 py-5 rounded-2xl font-black text-sm shadow-xl hover:bg-slate-100 transition-colors uppercase tracking-widest">SUBSCRIBE NOW</button>
+                 <input type="email" value={emailInput} onChange={(e) => setEmailInput(e.target.value)} required placeholder="Email Address..." className="w-full p-5 rounded-2xl bg-white/5 border border-white/10 text-white placeholder-white/40 font-bold focus:bg-white/10 outline-none transition-all" />
+                 <button type="submit" className="w-full bg-white text-slate-900 py-5 rounded-2xl font-black text-sm shadow-xl hover:scale-105 transition-transform uppercase tracking-widest">Secure Access</button>
                </form>
-               <p className="mt-6 text-[10px] font-bold text-white/50 uppercase tracking-widest">Routing: {EMAILS.subscription}</p>
+            </div>
+
+            <div className="flex items-center justify-center gap-4 p-8">
+               <ShieldCheck className="text-slate-300" size={32} />
+               <p className="text-[9px] font-black uppercase tracking-[0.2em] text-slate-400">Verified Global Hub <br />SSL Encrypted Protocol</p>
             </div>
           </div>
         </div>

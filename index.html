@@ -5,19 +5,20 @@
     <meta charset='UTF-8' />
     <meta content='width=device-width, initial-scale=1.0' name='viewport' />
     <title>Cabadokas - Women's Health, Beauty, Wealth &amp; Wellness</title>
-    <meta content="Official Cabadokas Blog. The ultimate destination for women's health, beauty, weight loss, healthy nutrition, and financial independence (Work from home, Make Money Online, Bitcoin, USDT)." name='description' />
-    <meta content='women&apos;s health, beauty, weight loss, nutrition, work from home, how to make money, how to generate income, free, Trump, elections, politics, bitcoin, usdt, affiliate marketing, passive income' name='keywords' />
+    <meta content="Official Cabadokas Blog. The ultimate destination for women's health, beauty, weight loss, healthy nutrition, and financial independence." name='description' />
     
-    <link href='/vite.svg' rel='icon' type='image/svg+xml'></link>
+    <link href='https://cabadokas.blogspot.com/favicon.ico' rel='icon' type='image/x-icon' />
+    
+    <b:include data='blog' name='all-head-content' />
 
-    <!-- Mandatory Blogger Skin -->
     <b:skin><![CDATA[
-      /* Cabadokas Premium Theme Core */
       #navbar-iframe { display: none !important; }
-      body { margin: 0; padding: 0; }
+      body { margin: 0; padding: 0; overflow-x: hidden; font-family: 'Inter', sans-serif; }
+      ::-webkit-scrollbar { width: 6px; }
+      ::-webkit-scrollbar-track { background: #f8fafc; }
+      ::-webkit-scrollbar-thumb { background: #fda4af; border-radius: 10px; }
     ]]></b:skin>
 
-    <!-- Tailwind CSS -->
     <script src='https://cdn.tailwindcss.com'></script>
     <script>
       /*<![CDATA[*/
@@ -38,16 +39,6 @@
                 800: '#9f1239',
                 900: '#881337',
               }
-            },
-            animation: {
-              'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-              'glow': 'glow 2s ease-in-out infinite alternate',
-            },
-            keyframes: {
-              glow: {
-                '0%': { boxShadow: '0 0 5px #f43f5e' },
-                '100%': { boxShadow: '0 0 20px #e11d48, 0 0 10px #f43f5e' },
-              }
             }
           }
         }
@@ -59,27 +50,23 @@
       /*<![CDATA[*/
       .goog-te-banner-frame.skiptranslate { display: none !important; }
       body { top: 0px !important; }
-      .goog-tooltip { display: none !important; }
-      .goog-tooltip:hover { display: none !important; }
-      .goog-text-highlight { background-color: transparent !important; border: none !important; box-shadow: none !important; }
       #google_translate_element select {
-        background-color: transparent !important;
+        background: #fff !important;
         border: 1px solid #e2e8f0 !important;
-        border-radius: 0.5rem !important;
-        padding: 4px 8px !important;
-        font-size: 12px !important;
-        font-weight: 600 !important;
-        color: #475569 !important;
-        outline: none !important;
+        border-radius: 6px !important;
+        padding: 2px 6px !important;
+        font-size: 11px !important;
+        font-weight: 700 !important;
+        color: #1e293b !important;
       }
       .dark #google_translate_element select {
+        background: #0f172a !important;
         border-color: #334155 !important;
         color: #f1f5f9 !important;
       }
       /*]]>*/
     </style>
 
-    <!-- Google Analytics -->
     <script async='async' src='https://www.googletagmanager.com/gtag/js?id=G-LKDDR6GQYH'></script>
     <script>
       /*<![CDATA[*/
@@ -94,11 +81,12 @@
     /*<![CDATA[*/
     {
       "imports": {
-        "react": "https://esm.sh/react@^19.2.3",
-        "react/": "https://esm.sh/react@^19.2.3/",
-        "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-        "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
-        "react-router-dom": "https://esm.sh/react-router-dom@^7.11.0"
+        "react": "https://esm.sh/react@19.0.0",
+        "react/": "https://esm.sh/react@19.0.0/",
+        "react-dom": "https://esm.sh/react-dom@19.0.0",
+        "react-dom/": "https://esm.sh/react-dom@19.0.0/",
+        "lucide-react": "https://esm.sh/lucide-react@0.460.0",
+        "react-router-dom": "https://esm.sh/react-router-dom@7.0.1"
       }
     }
     /*]]>*/
@@ -115,7 +103,7 @@
 }
 </script>
 </head>
-  <body class='bg-slate-50 text-slate-900 dark:bg-slate-900 dark:text-slate-100 transition-colors duration-300'>
+  <body class='bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-500'>
     <b:section id='main' showaddelement='no'>
       <b:widget id='Blog1' locked='true' title='Cabadokas App' type='Blog' visible='true'>
         <b:includable id='main'>
@@ -123,6 +111,7 @@
         </b:includable>
       </b:widget>
     </b:section>
+    
     <script src='index.tsx' type='module'></script>
   </body>
 </html>
