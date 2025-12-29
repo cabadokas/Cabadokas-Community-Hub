@@ -5,24 +5,19 @@
     <meta charset='UTF-8' />
     <meta content='width=device-width, initial-scale=1.0' name='viewport' />
     <title>Cabadokas - Elite Health, Beauty &amp; Wealth</title>
-    <meta content="Official Cabadokas Hub. High-performance wellness and financial strategies for the modern woman." name='description' />
-    
-    <link href='https://cabadokas.blogspot.com/favicon.ico' rel='icon' type='image/x-icon' />
     
     <!-- Mandatory Blogger Head Content -->
     <b:include data='blog' name='all-head-content' />
 
-    <!-- Core Theme Styles -->
     <b:skin><![CDATA[
       #navbar-iframe { display: none !important; }
-      body { margin: 0; padding: 0; overflow-x: hidden; -webkit-font-smoothing: antialiased; background-color: #020617; color: #f8fafc; }
-      ::-webkit-scrollbar { width: 5px; }
+      body { margin: 0; padding: 0; background-color: #020617; color: #f8fafc; overflow-x: hidden; font-family: sans-serif; }
+      ::-webkit-scrollbar { width: 4px; }
       ::-webkit-scrollbar-track { background: transparent; }
       ::-webkit-scrollbar-thumb { background: #e11d48; border-radius: 10px; }
-      #google_translate_element { display: inline-block; }
     ]]></b:skin>
 
-    <!-- Tailwind Config -->
+    <!-- Tailwind -->
     <script src='https://cdn.tailwindcss.com'></script>
     <script>
       /*<![CDATA[*/
@@ -47,31 +42,19 @@
       /*<![CDATA[*/
       .goog-te-banner-frame.skiptranslate { display: none !important; }
       body { top: 0px !important; }
-      #google_translate_element select {
-        background: rgba(255,255,255,0.05) !important;
-        border: 1px solid rgba(255,255,255,0.1) !important;
-        border-radius: 8px !important;
-        padding: 6px 10px !important;
-        font-size: 11px !important;
-        font-weight: 800 !important;
-        text-transform: uppercase;
-        color: #fff !important;
-        outline: none !important;
-      }
-      .obsidian-panel {
+      .obsidian-glass {
         background: rgba(255, 255, 255, 0.01);
         backdrop-filter: blur(40px);
+        -webkit-backdrop-filter: blur(40px);
         border: 1px solid rgba(255, 255, 255, 0.05);
       }
-      .text-reveal {
-        background: linear-gradient(to right, #fff 20%, #e11d48 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+      .text-glow {
+        text-shadow: 0 0 30px rgba(225, 29, 72, 0.3);
       }
       /*]]>*/
     </style>
 
-    <!-- SINGLE Merged Import Map - Fixed for Blogger -->
+    <!-- CRITICAL: Single Merged Import Map ONLY -->
     <script type='importmap'>
     /*<![CDATA[*/
     {
@@ -107,7 +90,7 @@
       </b:widget>
     </b:section>
     
-    <!-- React Main Entry -->
+    <!-- Application Entry -->
     <script src='index.tsx' type='module'></script>
   </body>
 </html>
