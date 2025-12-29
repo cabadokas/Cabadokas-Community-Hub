@@ -15,14 +15,14 @@
     <!-- Core Theme Styles -->
     <b:skin><![CDATA[
       #navbar-iframe { display: none !important; }
-      body { margin: 0; padding: 0; overflow-x: hidden; -webkit-font-smoothing: antialiased; background-color: #020617; }
+      body { margin: 0; padding: 0; overflow-x: hidden; -webkit-font-smoothing: antialiased; background-color: #020617; color: #f8fafc; }
       ::-webkit-scrollbar { width: 5px; }
       ::-webkit-scrollbar-track { background: transparent; }
       ::-webkit-scrollbar-thumb { background: #e11d48; border-radius: 10px; }
-      #google_translate_element { display: inline-block; vertical-align: middle; }
+      #google_translate_element { display: inline-block; }
     ]]></b:skin>
 
-    <!-- Tailwind Config with Premium Obsidian Palette -->
+    <!-- Tailwind Config -->
     <script src='https://cdn.tailwindcss.com'></script>
     <script>
       /*<![CDATA[*/
@@ -50,39 +50,28 @@
       #google_translate_element select {
         background: rgba(255,255,255,0.05) !important;
         border: 1px solid rgba(255,255,255,0.1) !important;
-        border-radius: 6px !important;
-        padding: 4px 8px !important;
+        border-radius: 8px !important;
+        padding: 6px 10px !important;
         font-size: 11px !important;
         font-weight: 800 !important;
         text-transform: uppercase;
         color: #fff !important;
         outline: none !important;
       }
-      .glass-card {
-        background: rgba(255, 255, 255, 0.02);
-        backdrop-filter: blur(16px);
+      .obsidian-panel {
+        background: rgba(255, 255, 255, 0.01);
+        backdrop-filter: blur(40px);
         border: 1px solid rgba(255, 255, 255, 0.05);
       }
-      @keyframes float {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-15px); }
+      .text-reveal {
+        background: linear-gradient(to right, #fff 20%, #e11d48 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
       }
-      .animate-float { animation: float 6s ease-in-out infinite; }
       /*]]>*/
     </style>
 
-    <!-- Google Analytics -->
-    <script async='async' src='https://www.googletagmanager.com/gtag/js?id=G-LKDDR6GQYH'></script>
-    <script>
-      /*<![CDATA[*/
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-LKDDR6GQYH');
-      /*]]>*/
-    </script>
-    
-    <!-- CONSOLIDATED Import Map - Crucial fix for white/black page -->
+    <!-- SINGLE Merged Import Map - Fixed for Blogger -->
     <script type='importmap'>
     /*<![CDATA[*/
     {
@@ -109,16 +98,16 @@
 }
 </script>
 </head>
-  <body class='bg-[#020617] text-slate-100 selection:bg-brand-600 selection:text-white'>
+  <body class='bg-[#020617]'>
     <b:section id='main' showaddelement='no'>
-      <b:widget id='Blog1' locked='true' title='Cabadokas App' type='Blog' visible='true'>
+      <b:widget id='Blog1' locked='true' title='Cabadokas Hub' type='Blog' visible='true'>
         <b:includable id='main'>
           <div id='root'></div>
         </b:includable>
       </b:widget>
     </b:section>
     
-    <!-- React Entry -->
+    <!-- React Main Entry -->
     <script src='index.tsx' type='module'></script>
   </body>
 </html>
