@@ -164,9 +164,9 @@ export const Footer = () => {
             <h3 className="text-white font-black uppercase tracking-widest text-xs mb-8">Navigation Hub</h3>
             <ul className="space-y-4 text-xs font-black uppercase tracking-widest">
               <li><Link to="/" className="hover:text-brand-500">Home</Link></li>
+              <li><Link to="/#affiliates" className="hover:text-brand-500">Global Partners</Link></li>
               <li><Link to="/privacy" className="hover:text-brand-500">Privacy Policy</Link></li>
               <li><Link to="/contact" className="hover:text-brand-500">Contact Us</Link></li>
-              <li><a href="https://cabadokas.blogspot.com" target="_blank" className="hover:text-brand-500">Blogger Main</a></li>
             </ul>
           </div>
           <div>
