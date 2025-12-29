@@ -5,7 +5,7 @@
     <meta charset='UTF-8' />
     <meta content='width=device-width, initial-scale=1.0' name='viewport' />
     <title>Cabadokas - Elite Health, Beauty &amp; Wealth</title>
-    <meta content="Official Cabadokas Hub. High-performance wellness and financial strategies for the modern woman." name='description' />
+    <meta content='Official Cabadokas Hub. High-performance wellness and financial strategies for the modern woman.' name='description' />
     
     <link href='https://cabadokas.blogspot.com/favicon.ico' rel='icon' type='image/x-icon' />
     
@@ -15,9 +15,17 @@
     <!-- Core Theme Styles -->
     <b:skin><![CDATA[
       #navbar-iframe { display: none !important; }
-      body { margin: 0; padding: 0; overflow-x: hidden; -webkit-font-smoothing: antialiased; background-color: #020617; color: #f8fafc; font-family: 'Inter', sans-serif; }
-      ::-webkit-scrollbar { width: 4px; }
-      ::-webkit-scrollbar-track { background: transparent; }
+      body { 
+        margin: 0; 
+        padding: 0; 
+        overflow-x: hidden; 
+        -webkit-font-smoothing: antialiased; 
+        background-color: #020617; 
+        color: #f8fafc; 
+        font-family: 'Inter', system-ui, -apple-system, sans-serif; 
+      }
+      ::-webkit-scrollbar { width: 5px; }
+      ::-webkit-scrollbar-track { background: #020617; }
       ::-webkit-scrollbar-thumb { background: #e11d48; border-radius: 10px; }
       input, textarea, button { font-family: inherit; }
     ]]></b:skin>
@@ -38,14 +46,19 @@
               }
             },
             animation: {
-              'pulse-slow': 'pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-              'float': 'float 5s ease-in-out infinite',
-              'spin-slow': 'spin 8s linear infinite',
+              'pulse-slow': 'pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'float': 'float 6s ease-in-out infinite',
+              'scan': 'scan 3s linear infinite',
             },
             keyframes: {
               float: {
-                '0%, 100%': { transform: 'translateY(0)' },
-                '50%': { transform: 'translateY(-15px)' },
+                '0%, 100%': { transform: 'translateY(0) scale(1)' },
+                '50%': { transform: 'translateY(-20px) scale(1.02)' },
+              },
+              scan: {
+                '0%': { transform: 'translateY(-100%)', opacity: '0' },
+                '50%': { opacity: '0.5' },
+                '100%': { transform: 'translateY(100%)', opacity: '0' }
               }
             }
           }
@@ -58,35 +71,42 @@
       /*<![CDATA[*/
       .goog-te-banner-frame.skiptranslate { display: none !important; }
       body { top: 0px !important; }
-      #google_translate_element select {
-        background: rgba(255,255,255,0.03) !important;
-        border: 1px solid rgba(255,255,255,0.1) !important;
-        border-radius: 6px !important;
-        padding: 5px 10px !important;
-        font-size: 10px !important;
-        font-weight: 900 !important;
-        text-transform: uppercase;
-        color: #fff !important;
-        outline: none !important;
+      
+      .glass-panel {
+        background: rgba(15, 23, 42, 0.6);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
       }
-      .obsidian-panel {
-        background: rgba(255, 255, 255, 0.01);
-        backdrop-filter: blur(40px);
-        -webkit-backdrop-filter: blur(40px);
-        border: 1px solid rgba(255, 255, 255, 0.05);
+      
+      .text-neon {
+        color: #fff;
+        text-shadow: 0 0 10px rgba(225, 29, 72, 0.5), 0 0 20px rgba(225, 29, 72, 0.3);
       }
+
       .text-reveal {
         background: linear-gradient(to right, #fff 20%, #e11d48 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
       }
-      .luxury-shadow {
-        shadow-[0_50px_100px_rgba(0,0,0,0.8)];
+
+      .btn-luxury {
+        background: linear-gradient(to right, #e11d48, #9f1239);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        font-weight: 900;
+      }
+      
+      .btn-luxury:hover {
+        box-shadow: 0 0 30px rgba(225, 29, 72, 0.4);
+        transform: translateY(-2px);
       }
       /*]]>*/
     </style>
 
-    <!-- SINGLE Merged Import Map - DO NOT DUPLICATE THIS -->
+    <!-- SINGLE Merged Import Map - DO NOT DUPLICATE -->
     <script type='importmap'>
     /*<![CDATA[*/
     {
@@ -104,11 +124,11 @@
   <script type="importmap">
 {
   "imports": {
-    "react/": "https://esm.sh/react@^19.2.3/",
     "react": "https://esm.sh/react@^19.2.3",
     "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
-    "react-router-dom": "https://esm.sh/react-router-dom@^7.11.0"
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.11.0",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0"
   }
 }
 </script>
@@ -118,7 +138,13 @@
       <b:widget id='Blog1' locked='true' title='Cabadokas Hub' type='Blog' visible='true'>
         <b:includable id='main'>
           <!-- React Mount Point -->
-          <div id='root'></div>
+          <div id='root'>
+            <div style='height:100vh; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:20px;'>
+              <div style='width:40px; height:40px; border:3px solid #e11d48; border-top-color:transparent; border-radius:50%; animation:spin 1s linear infinite;'></div>
+              <p style='color:#475569; font-family:sans-serif; font-size:12px; letter-spacing:2px; font-weight:bold;'>INITIALIZING ELITE PORTAL...</p>
+            </div>
+            <style>@keyframes spin { to { transform: rotate(360deg); } }</style>
+          </div>
         </b:includable>
       </b:widget>
     </b:section>
