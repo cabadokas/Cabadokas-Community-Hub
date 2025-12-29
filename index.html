@@ -4,21 +4,25 @@
   <head>
     <meta charset='UTF-8' />
     <meta content='width=device-width, initial-scale=1.0' name='viewport' />
-    <title>Cabadokas - Women's Health, Beauty, Wealth &amp; Wellness</title>
-    <meta content="Official Cabadokas Blog. The ultimate destination for women's health, beauty, weight loss, healthy nutrition, and financial independence." name='description' />
+    <title>Cabadokas - Elite Health, Beauty &amp; Wealth</title>
+    <meta content="Official Cabadokas Hub. High-performance wellness and financial strategies for the modern woman." name='description' />
     
     <link href='https://cabadokas.blogspot.com/favicon.ico' rel='icon' type='image/x-icon' />
     
+    <!-- Mandatory Blogger Head Content -->
     <b:include data='blog' name='all-head-content' />
 
+    <!-- Core Theme Styles -->
     <b:skin><![CDATA[
       #navbar-iframe { display: none !important; }
-      body { margin: 0; padding: 0; overflow-x: hidden; font-family: 'Inter', sans-serif; }
-      ::-webkit-scrollbar { width: 6px; }
-      ::-webkit-scrollbar-track { background: #f8fafc; }
-      ::-webkit-scrollbar-thumb { background: #fda4af; border-radius: 10px; }
+      body { margin: 0; padding: 0; overflow-x: hidden; -webkit-font-smoothing: antialiased; background-color: #020617; }
+      ::-webkit-scrollbar { width: 5px; }
+      ::-webkit-scrollbar-track { background: transparent; }
+      ::-webkit-scrollbar-thumb { background: #e11d48; border-radius: 10px; }
+      #google_translate_element { display: inline-block; vertical-align: middle; }
     ]]></b:skin>
 
+    <!-- Tailwind Config with Premium Obsidian Palette -->
     <script src='https://cdn.tailwindcss.com'></script>
     <script>
       /*<![CDATA[*/
@@ -28,16 +32,9 @@
           extend: {
             colors: {
               brand: {
-                50: '#fff1f2',
-                100: '#ffe4e6',
-                200: '#fecdd3',
-                300: '#fda4af',
-                400: '#fb7185',
-                500: '#f43f5e',
-                600: '#e11d48',
-                700: '#be123c',
-                800: '#9f1239',
-                900: '#881337',
+                50: '#fff1f2', 100: '#ffe4e6', 200: '#fecdd3', 300: '#fda4af',
+                400: '#fb7185', 500: '#f43f5e', 600: '#e11d48', 700: '#be123c',
+                800: '#9f1239', 900: '#881337',
               }
             }
           }
@@ -51,22 +48,30 @@
       .goog-te-banner-frame.skiptranslate { display: none !important; }
       body { top: 0px !important; }
       #google_translate_element select {
-        background: #fff !important;
-        border: 1px solid #e2e8f0 !important;
+        background: rgba(255,255,255,0.05) !important;
+        border: 1px solid rgba(255,255,255,0.1) !important;
         border-radius: 6px !important;
-        padding: 2px 6px !important;
+        padding: 4px 8px !important;
         font-size: 11px !important;
-        font-weight: 700 !important;
-        color: #1e293b !important;
+        font-weight: 800 !important;
+        text-transform: uppercase;
+        color: #fff !important;
+        outline: none !important;
       }
-      .dark #google_translate_element select {
-        background: #0f172a !important;
-        border-color: #334155 !important;
-        color: #f1f5f9 !important;
+      .glass-card {
+        background: rgba(255, 255, 255, 0.02);
+        backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.05);
       }
+      @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-15px); }
+      }
+      .animate-float { animation: float 6s ease-in-out infinite; }
       /*]]>*/
     </style>
 
+    <!-- Google Analytics -->
     <script async='async' src='https://www.googletagmanager.com/gtag/js?id=G-LKDDR6GQYH'></script>
     <script>
       /*<![CDATA[*/
@@ -77,6 +82,7 @@
       /*]]>*/
     </script>
     
+    <!-- CONSOLIDATED Import Map - Crucial fix for white/black page -->
     <script type='importmap'>
     /*<![CDATA[*/
     {
@@ -103,7 +109,7 @@
 }
 </script>
 </head>
-  <body class='bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-500'>
+  <body class='bg-[#020617] text-slate-100 selection:bg-brand-600 selection:text-white'>
     <b:section id='main' showaddelement='no'>
       <b:widget id='Blog1' locked='true' title='Cabadokas App' type='Blog' visible='true'>
         <b:includable id='main'>
@@ -112,6 +118,7 @@
       </b:widget>
     </b:section>
     
+    <!-- React Entry -->
     <script src='index.tsx' type='module'></script>
   </body>
 </html>
